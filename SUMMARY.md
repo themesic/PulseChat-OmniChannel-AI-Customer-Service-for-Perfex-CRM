@@ -1,6 +1,6 @@
-# Summary
+# Table of contents
 
-* [👋 Introduction](README.md)
+* [👋 OmniChannel AI Customer Service for Perfex CRM](README.md)
 * [🚀 Getting Started](getting-started.md)
 * [⚙️ Admin Configuration](admin-configuration.md)
 * [💬 Using PulseChat (Staff)](staff-usage.md)
@@ -8,4 +8,3 @@
 * [🧠 AI Assistant](ai-assistant.md)
 * [🧱 Architecture & Internals](architecture.md)
 * [🧪 Troubleshooting & FAQ](troubleshooting.md)
-
