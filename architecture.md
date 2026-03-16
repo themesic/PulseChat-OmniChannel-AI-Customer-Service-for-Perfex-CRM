@@ -15,17 +15,10 @@ Responsibilities:
   - `PULSECHAT_MODULE_NAME`, `PULSECHAT_VERSION`
   - Path/URL constants: `PULSECHAT_MODULE_PATH`, `PULSECHAT_MODULE_URL`, upload paths.
   - DB table constants: `TABLE_PC_*` (conversations, messages, participants, etc.).
-- Loads licensing core:
-  - `core/Apiinit.php`
-  - `third_party/node.php`
-  - `vendor/autoload.php` (if present, for JWT/Requests).
 - Registers hooks:
   - `register_activation_hook`
   - `register_language_files`
   - `hooks()->add_action('admin_init', 'pulsechat_register_permissions')`
-  - `hooks()->add_action('app_init', 'pulsechat_actLib')` (licensing)
-  - `hooks()->add_action('pre_activate_module', 'pulsechat_sidecheck')`
-  - `hooks()->add_action('pre_deactivate_module', 'pulsechat_deregister')`
   - `hooks()->add_action('after_cron_run', 'pulsechat_cron_email_poll')` (email polling)
 - Adds admin menu entry.
 - Adds client‑side hooks for injecting the chat widget in the client portal when enabled.
@@ -73,13 +66,7 @@ Handles **omnichannel** and AI endpoints:
 - Analytics:
   - `analytics()`, `analytics_export()` for channel metrics (messages per day, per channel, AI usage).
 
-### 2.3 `controllers/Env_ver.php`
-
-Licensing activation controller:
-
-- `activate()` and `upgrade_database()` call `modules\pulsechat\core\Apiinit::pre_validate()` and return JSON for the activation UI.
-
-### 2.4 Webhook Controllers
+### 2.3 Webhook Controllers
 
 - `controllers/webhooks/ChannelWebhook.php`
   - Receives webhooks from external providers (WhatsApp, Telegram, etc.).
@@ -188,9 +175,6 @@ Namespace: `libraries/channels/`
 - `views/admin/settings_page.php`
   - Wrapper page for module settings (includes `settings.php` inside a Perfex panel with Save button).
 
-- `views/activate.php`
-  - Licensing activation screen used by `Apiinit::activate()`.
-
 ### 5.2 JavaScript
 
 Located in `assets/js/`:
@@ -203,7 +187,7 @@ Located in `assets/js/`:
     - Typing indicators, presence, read receipts.
     - Emoji picker and reactions.
     - Local display settings (theme, layout).
-    - AI toolbar handlers (when channels are disabled).
+    - AI toolbar handlers when channels are disabled.
 
 - `pulsechat-channels.js`:
   - Omnichannel frontend.
@@ -257,20 +241,7 @@ Perfex’s migration system ensures these run in order when you update the modul
 
 ---
 
-## 7. Licensing Core
-
-See **[🔐 Licensing](licensing.md)** for details, but from an architecture standpoint:
-
-- `core/Apiinit.php` and `libraries/Pulsechat_aeiou.php` are independent of the rest of the module logic.
-- They control:
-  - Whether the module should be activated at all.
-  - Whether it should stay active based on periodic remote verification.
-
-If licensing fails, they call `app_modules->deactivate('pulsechat')`, which effectively disables the entire module until reactivated.
-
----
-
-## 8. Extensibility Notes
+## 7. Extensibility Notes
 
 When extending PulseChat:
 

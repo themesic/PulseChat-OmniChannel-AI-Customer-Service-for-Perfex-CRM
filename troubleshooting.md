@@ -27,36 +27,7 @@ This page covers common issues and how to resolve them when working with PulseCh
 
 ---
 
-## 2. “Module Failed Verification and Got Deactivated”
-
-**Message:**
-
-> One of your modules failed its verification and got deactivated. Please reactivate or contact support.
-
-**Cause:**
-
-- License token/verification failed a periodic check, or
-- Remote validation reported your license as invalid / revoked, or
-- There was a long‑term connectivity issue and the grace period expired.
-
-**Fix:**
-
-1. Go to **Setup → Modules**.
-2. Deactivate **PulseChat**.
-3. Activate it again:
-   - You should see the **activation screen**.
-   - Enter your purchase key.
-4. If error persists:
-   - Check server logs for detailed error messages.
-   - Contact support with:
-     - Your purchase key (privately).
-     - Any error/heartbeat data from `pulsechat_heartbeat` option.
-
-For more detail on licensing internals, see **[🔐 Licensing](licensing.md)**.
-
----
-
-## 3. Transport Issues (Messages Slow or Not Real‑Time)
+## 2. Transport Issues (Messages Slow or Not Real‑Time)
 
 **Symptoms:**
 
@@ -84,7 +55,7 @@ For more detail on licensing internals, see **[🔐 Licensing](licensing.md)**.
 
 ---
 
-## 4. Files Won’t Upload
+## 3. Files Won’t Upload
 
 **Symptoms:**
 
@@ -106,7 +77,7 @@ For more detail on licensing internals, see **[🔐 Licensing](licensing.md)**.
 
 ---
 
-## 5. Clients Can’t See or Use Chat
+## 4. Clients Can’t See or Use Chat
 
 **Symptoms:**
 
@@ -126,7 +97,7 @@ For more detail on licensing internals, see **[🔐 Licensing](licensing.md)**.
 
 ---
 
-## 6. Omnichannel Messages Not Arriving
+## 5. Omnichannel Messages Not Arriving
 
 **Symptoms:**
 
@@ -153,7 +124,7 @@ For more detail on licensing internals, see **[🔐 Licensing](licensing.md)**.
 
 ---
 
-## 7. AI Buttons Not Working
+## 6. AI Buttons Not Working
 
 **Symptoms:**
 
@@ -187,28 +158,7 @@ For more detail on licensing internals, see **[🔐 Licensing](licensing.md)**.
 
 ---
 
-## 8. Licensing: Activation Screen Not Showing
-
-**Symptoms:**
-
-- Clicking **Activate** on PulseChat immediately activates/deactivates without showing the license form.
-
-**Checks:**
-
-1. **Hooks present?**
-   - In `pulsechat.php`, verify:
-     - `pre_activate_module` hook is registered to `pulsechat_sidecheck`.
-
-2. **No early fatals**
-   - If a PHP fatal occurs before `pre_activate_module` runs, the hook might not be executed.
-   - Check server logs for syntax errors or missing includes.
-
-3. **Module header**
-   - Ensure `pulsechat.php` is being loaded by Perfex; incorrect file naming or location will prevent hooks from registering.
-
----
-
-## 9. Database Errors (Undefined Constants)
+## 7. Database Errors (Undefined Constants)
 
 **Symptoms:**
 
@@ -225,7 +175,7 @@ For more detail on licensing internals, see **[🔐 Licensing](licensing.md)**.
 
 ---
 
-## 10. Still Stuck?
+## 8. Still Stuck?
 
 If you’ve tried the above and still can’t resolve the issue:
 
@@ -235,7 +185,7 @@ If you’ve tried the above and still can’t resolve the issue:
    - Screenshots of the relevant settings screens.
 2. Contact support with:
    - Your Perfex version.
-   - PulseChat version (see module header or footer in activate view).
+   - PulseChat version.
    - Any customization you’ve done (override views, modified code, etc.).
 
 This information will make it much easier to diagnose and fix the problem quickly.

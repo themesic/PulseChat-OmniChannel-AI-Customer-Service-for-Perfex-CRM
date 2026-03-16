@@ -6,7 +6,6 @@
 * [💬 Using PulseChat (Staff)](staff-usage.md)
 * [🌐 Omnichannel & Channels](omnichannel.md)
 * [🧠 AI Assistant](ai-assistant.md)
-* [🔐 Licensing](licensing.md)
 * [🧱 Architecture & Internals](architecture.md)
 * [🧪 Troubleshooting & FAQ](troubleshooting.md)
 

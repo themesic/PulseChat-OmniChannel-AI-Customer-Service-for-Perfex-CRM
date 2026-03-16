@@ -7,7 +7,6 @@ This page walks you through installing, activating, and opening PulseChat for th
 ## 1. Requirements
 
 - **Perfex CRM** ≥ `3.0.0`
-- Valid **PulseChat license** (Envato purchase code)
 - PHP version compatible with your Perfex installation (PulseChat itself does not require special extensions beyond what Perfex already uses)
 
 ---
@@ -30,30 +29,7 @@ This page walks you through installing, activating, and opening PulseChat for th
 
 ---
 
-## 3. Licensing & Activation 🔐
-
-PulseChat uses the same Envato‑based licensing system as other Themesic modules.
-
-1. In Perfex, navigate to:
-   - **Setup → Modules**
-
-2. Find **PulseChat – Perfex CRM Chat** in the modules list.
-
-3. Click **Activate**.
-   - On first activation, you’ll be redirected to the **Module activation** screen (served from `modules/pulsechat/views/activate.php`).
-
-4. Enter your **Envato purchase key**:
-   - You can click the help link (“Where can I find my purchase key?”) if you’re not sure where to get it.
-
-5. Submit the form:
-   - If validation succeeds, you’ll see a success message and be redirected back to the modules page, with PulseChat set to **Active**.
-   - If validation fails, an error message explains why (invalid key, already used, network issue, etc.).
-
-> The module also performs **periodic background checks**. If the license becomes invalid (e.g., revoked), PulseChat will be automatically deactivated and a red alert will appear in the admin area.
-
----
-
-## 4. First‑time Setup Wizard ⚙️
+## 3. First‑time Setup Wizard ⚙️
 
 On first use as an admin:
 
@@ -74,7 +50,7 @@ You can always change transport later from **PulseChat Settings**, so the wizard
 
 ---
 
-## 5. Where to Find PulseChat in Perfex
+## 4. Where to Find PulseChat in Perfex
 
 - **Admin area**
   - Left sidebar: a **“Chat”** entry (PulseChat) under the main navigation.
@@ -91,7 +67,7 @@ You can always change transport later from **PulseChat Settings**, so the wizard
 
 ---
 
-## 6. Basic Data Model (High‑Level)
+## 5. Basic Data Model (High‑Level)
 
 PulseChat stores its data in dedicated tables (all prefixed via `db_prefix()`):
 
@@ -107,7 +83,7 @@ You don’t need to manually manage these tables—Perfex migrations handle crea
 
 ---
 
-## 7. Next Steps
+## 6. Next Steps
 
 Once PulseChat is installed and activated:
 

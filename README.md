@@ -11,7 +11,7 @@ PulseChat is a full‑featured chat and omnichannel inbox module for **Perfex CR
 This GitBook is the main documentation for the module. It explains:
 
 - What PulseChat does and where it lives inside Perfex
-- How to install, license, and upgrade it
+- How to install and upgrade it
 - How admins configure transport, channels, AI, permissions, and limits
 - How staff actually use the chat UI day‑to‑day
 - How the omnichannel and AI layers work under the hood
